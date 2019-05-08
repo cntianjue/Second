@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- 配置shiro的过滤器 -->
+	<bean id="shiroFilter"
+		class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- 配置管理器：是shiro的核心功能 -->
+		<property name="securityManager" ref="securityManager"></property>
+		<!-- 如果没认证过(登录)要跳转到哪个界面 -->
+		<property name="loginUrl" value="/index.jsp"></property>
+		<!--.引入过滤器:在shiro中注册自己的过滤器，才能使用 -->
+		<property name="filters">
+			<map>
+				<entry key="orRoles" value-ref="rolesFilter"></entry>
+			</map>
+		</property>
+		<!-- 配置过滤器链：哪些请求需要认证、哪些不需要认证、哪些需要什么样的权限等等 -->
+		<property name="filterChainDefinitions">
+			<value>
+				<!-- anon:允许匿名访问 -->
+				/user/login = anon
+				/js/* = anon
+				/css/* = anon
+				/img/* = anon
+				/inc/* = anon
+				/plugins/*=anon
+				/user/message =perms[admins]
+				/views/complexDatagrid/index.jsp = authc,orRoles[users,admins,superadmins]
+				/views/datagrid2/index.jsp = authc,orRoles[users,admins,superadmins]
+				/views/studentManage/index.jsp = authc,orRoles[users,admins,superadmins]
+				<!-- logou:登出、注销 -->
+				/logout = logout
+				/** = authc
+			</value>
+		</property>
+	</bean>
+
+	<!-- 创建安全管理器 -->
+	<bean id="securityManager"
+		class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<!-- 配置realm -->
+		<property name="realm" ref="myRealm"></property>
+	</bean>
+	<!-- 配置realm，自己写 -->
+	<bean id="myRealm" class="com.woniuxy.realm.MyRealm">
+		<!-- 指定加密类型 -->
+		<property name="credentialsMatcher">
+			<bean
+				class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+				<!-- 配置加密算法 -->
+				<property name="hashAlgorithmName" value="MD5"></property>
+				<!-- 配置加密次数 -->
+				<property name="hashIterations" value="1024"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 配置shiro的生命周期管理器 -->
+	<bean id="lifecycleBeanPostProcessor"
+		class="org.apache.shiro.spring.LifecycleBeanPostProcessor"></bean>
+	<!-- .创建自定义过滤器对象 -->
+	<bean id="rolesFilter" class="com.woniuxy.filter.RolesFilter"></bean>
+</beans>

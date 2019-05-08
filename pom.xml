@@ -1,0 +1,163 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.woniuxy.shiro</groupId>
+  <artifactId>day18_shiro02</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <properties>
+  	<spring.version>4.3.10.RELEASE</spring.version>
+  	 <jackson.version>2.5.4</jackson.version> 
+  </properties>
+   
+  <dependencies>
+  	<!-- spring mvc -->
+  	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-aop</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-tx</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-orm</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	
+	
+	<!-- jackson -->
+	 <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency> 
+	
+	<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.16</version>
+</dependency>
+	<!-- spring对shiro支持包 -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context-support</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	
+	<!-- shiro的依赖 -->
+	<!-- core -->
+	<dependency>
+	    <groupId>org.apache.shiro</groupId>
+	    <artifactId>shiro-core</artifactId>
+	    <version>1.4.0</version>
+	</dependency>
+	<!-- shiro对web的支持包 -->
+	<dependency>
+	    <groupId>org.apache.shiro</groupId>
+	    <artifactId>shiro-web</artifactId>
+	    <version>1.4.0</version>
+	</dependency>
+	<!-- shiro对spring的值包 -->
+	<dependency>
+	    <groupId>org.apache.shiro</groupId>
+	    <artifactId>shiro-spring</artifactId>
+	    <version>1.4.0</version>
+	</dependency>
+	
+	<!-- 日志包 -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>jcl-over-slf4j</artifactId>
+	    <version>1.6.4</version>
+	</dependency>
+	<dependency>
+	    <groupId>log4j</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>1.2.17</version>
+	</dependency>
+	
+	<!--servlet/jstl -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>4.0.1</version>
+	    <scope>provided</scope>
+	</dependency>
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	
+	<!-- mybatis -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	    <version>3.2.7</version>
+	</dependency>
+	<!-- mybatis-spring -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>1.3.1</version>
+	</dependency>
+	
+	<!-- mysql -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>5.1.30</version>
+	</dependency>
+	
+	<!-- log4j -->
+	<dependency>
+	    <groupId>log4j</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>1.2.17</version>
+	</dependency>
+	
+	<!-- aspectj -->
+	<dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>1.8.10</version>
+	</dependency>
+	
+	<!-- shiro整合ehcache的包 -->
+	<dependency>
+	    <groupId>org.apache.shiro</groupId>
+	    <artifactId>shiro-ehcache</artifactId>
+	    <version>1.4.0</version>
+	</dependency>
+	<!-- 文件上传 -->
+	  <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.4</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+  
+</project>

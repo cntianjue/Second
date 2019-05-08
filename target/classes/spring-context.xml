@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<!-- 1.配置mybatis运行时所需要的DataSource spring为整合mybatis时提供了创建DataSource的解决方案:连接数据 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- 配置数据库参数 -->
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/domanger?useUnicode=true&amp;characterEncoding=GBK"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+
+	<!-- 2.创建是factory:mybatis在整合spring时，mybatis给我们提供一个类，用来创建工厂 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 配置数据源：要操作哪个数据库 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 读取mybatis的配置文件 -->
+		<property name="configLocation"
+			value="classpath:mybatis-config.xml"></property>
+	</bean>
+
+	<!-- 3.配置mapper，开启扫描 在扫描包的同时，会自动的创建实现Mapper接口的实现类，通过实现类可以操作数据库 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 要扫描哪个包 -->
+		<property name="basePackage" value="com.woniuxy.mappers"></property>
+		<!-- 和factory产生关系:通过factory创建session、mapper -->
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+
+	<!-- 开启扫描 -->
+	<context:component-scan
+		base-package="com.woniuxy.*"></context:component-scan>
+	<!-- 事务管理：待定 配置事务管理器:开启事务、提交事务、回滚 <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
+		<property name="dataSource" ref="dataSource"></property> </bean> 配置通知 <tx:advice 
+		id="txAdvice" transaction-manager="txManager"> 配置事务：开启事务 <tx:attributes> 
+		指定给哪些方法添加事务 * 代表所有的方法采用默认的方式处理 <tx:method name="*" propagation="REQUIRED"/> 
+		REQUIRES_NEW:不管是否在一个事务中都会新建一个事务 <tx:method name="insertLog" propagation="REQUIRES_NEW"/> 
+		<tx:method name="*" propagation="REQUIRED"/> </tx:attributes> </tx:advice> 
+		配置切面 <aop:config> 配置切点：找到哪些方法要添加事务 <aop:pointcut expression="execution(* 
+		com.woniuxy.service.*.*(..))" id="pc"/> 配置通知 <aop:advisor advice-ref="txAdvice" 
+		pointcut-ref="pc"/> </aop:config> -->
+</beans>
