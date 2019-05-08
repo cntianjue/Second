@@ -17,6 +17,6 @@
 ##### 3、对spring-context-mvc.xml的数据库信息进行配置
 
 ## 模块介绍
+ ![image](https://github.com/cntianjue/Second/blob/master/img/%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97.png)
 
-（https://github.com/cntianjue/Second/blob/master/img/%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97.png）
  
