@@ -16,4 +16,7 @@
 #####  src引用格式/images/图片名称（images在webapps下），你也可以自定义.
 ##### 3、对spring-context-mvc.xml的数据库信息进行配置
 
+## 模块介绍
+
+（https://github.com/cntianjue/Second/blob/master/img/%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97.png）
  
