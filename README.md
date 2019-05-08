@@ -12,8 +12,7 @@
 ## 如何开始
 ##### 1、将项目导入你的eclipse
 ##### 2、注意：在图片展示模块我对Tomcat的service.xml进行了路径配置如下：
-#####   <Context docBase="Second" path="/Second" reloadable="true" source="org.eclipse.jst.jee.server:Second"/></Host>
-#####   src引用格式/images/图片名称（images在webapps下），你也可以自定义.
+#####  <Context docBase="Second" path="/Second" reloadable="true" source="org.eclipse.jst.jee.server:Second"/></Host> src引用格式/images/图 #####  片名称（images在webapps下），你也可以自定义.
 ##### 3、对spring-context-mvc.xml的数据库信息进行配置
 
  
