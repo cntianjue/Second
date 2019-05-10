@@ -32,7 +32,7 @@
   ![image](https://github.com/cntianjue/Second/blob/master/img/%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7/QQ%E5%9B%BE%E7%89%8720190508074704.png)
 
  ###### 无权限展示
-  ![image](https://github.com/cntianjue/Second/blob/master/img/%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7/QQ%E5%9B%BE%E7%89%8720190508074731.png)
+  ![image](https://github.com/cntianjue/Second/blob/master/img/%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7/QQ%E5%9B%BE%E7%89%8720190508074731.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300)
   
  ###### 信息展示
   ![image](https://github.com/cntianjue/Second/blob/master/img/%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7/QQ%E5%9B%BE%E7%89%8720190508074908.png)
