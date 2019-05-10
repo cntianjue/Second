@@ -85,7 +85,7 @@
 
 * 本项目采用方式比较基础，希望为入门朋友提供一个demo，如果对你有帮助，抱拳谢谢打赏！
 
-![image](https://github.com/cntianjue/Second/blob/master/src/main/webapp/images/zhifu.png)
+![image](https://github.com/cntianjue/Second/blob/master/src/main/webapp/images/zhifu.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/150)
 
 
 ###### 有任何问题可联系作者QQ:1474459701
